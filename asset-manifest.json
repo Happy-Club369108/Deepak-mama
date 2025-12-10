@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/deepak-mama/static/css/main.e6c13ad2.css",
-    "main.js": "/deepak-mama/static/js/main.00daea4f.js",
-    "static/js/453.7c7d8e13.chunk.js": "/deepak-mama/static/js/453.7c7d8e13.chunk.js",
-    "index.html": "/deepak-mama/index.html",
-    "main.e6c13ad2.css.map": "/deepak-mama/static/css/main.e6c13ad2.css.map",
-    "main.00daea4f.js.map": "/deepak-mama/static/js/main.00daea4f.js.map",
-    "453.7c7d8e13.chunk.js.map": "/deepak-mama/static/js/453.7c7d8e13.chunk.js.map"
+    "main.css": "/Deepak-mama/static/css/main.e6c13ad2.css",
+    "main.js": "/Deepak-mama/static/js/main.551fd61a.js",
+    "static/js/453.7c7d8e13.chunk.js": "/Deepak-mama/static/js/453.7c7d8e13.chunk.js",
+    "index.html": "/Deepak-mama/index.html",
+    "main.e6c13ad2.css.map": "/Deepak-mama/static/css/main.e6c13ad2.css.map",
+    "main.551fd61a.js.map": "/Deepak-mama/static/js/main.551fd61a.js.map",
+    "453.7c7d8e13.chunk.js.map": "/Deepak-mama/static/js/453.7c7d8e13.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.00daea4f.js"
+    "static/js/main.551fd61a.js"
   ]
 }
