@@ -2,7 +2,7 @@
   "name": "deepak-mama",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Happy-Club369108.github.io/Deepak-mama",
+  "homepage": ".",  
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
