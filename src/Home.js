@@ -6,29 +6,23 @@ import {
     DialogActions, TextField, MenuItem, Select, FormControl,
     InputLabel, Snackbar, Alert, CardMedia
 } from '@mui/material';
-
 import {
     Phone, Email, LocationOn, Work, CheckCircle,
-    Business, WhatsApp, Security,
-    Assignment, SupportAgent, Schedule,
+    Business, WhatsApp, ArrowForward, Security,
+    Assignment, SupportAgent, Translate, Schedule,
     Factory, Warehouse, Agriculture, CleaningServices,
     Restaurant, LocalShipping, Build, DirectionsCar,
-    SupervisorAccount, Engineering, Person, Close
+    SupervisorAccount, Engineering, Person, Close, Send, Check,
+    Elderly, HealthAndSafety
 } from '@mui/icons-material';
 
 const Home = () => {
     const [openForm, setOpenForm] = useState(false);
     const [openSuccess, setOpenSuccess] = useState(false);
     const [loading, setLoading] = useState(false);
-
     const [formData, setFormData] = useState({
-        fullName: '',
-        email: '',
-        phone: '',
-        position: '',
-        experience: '',
-        nationality: '',
-        message: ''
+        fullName: '', email: '', phone: '', position: '',
+        experience: '', nationality: '', message: ''
     });
 
     const handleFormChange = (e) => {
@@ -43,168 +37,241 @@ const Home = () => {
             setOpenForm(false);
             setOpenSuccess(true);
             setFormData({
-                fullName: '',
-                email: '',
-                phone: '',
-                position: '',
-                experience: '',
-                nationality: '',
-                message: ''
+                fullName: '', email: '', phone: '', position: '',
+                experience: '', nationality: '', message: ''
             });
         }, 1500);
     };
 
-    const unskilledJobs = [
-        {
-            icon: <Warehouse />,
-            title: 'Warehouse Worker',
-            desc: 'Handling goods, packing, sorting, and shipping in logistics centers.',
-            image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600'
-        },
-        {
-            icon: <Factory />,
-            title: 'Production Assistant',
-            desc: 'Supporting manufacturing lines, assembly, and quality checks.',
-            image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600'
-        },
-        {
-            icon: <Agriculture />,
-            title: 'Farm Worker',
-            desc: 'Seasonal agricultural work including planting and harvesting.',
-            image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600'
-        },
-        {
-            icon: <CleaningServices />,
-            title: 'Cleaning Staff',
-            desc: 'Commercial and residential cleaning services.',
-            image: 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600'
-        },
-        {
-            icon: <Work />,
-            title: 'General Helper',
-            desc: 'Manual labor support in construction and industrial sites.',
-            image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600'
-        }
-    ];
+const unskilledJobs = [
+    {
+        icon: <Warehouse />,
+        title: 'Varastotyöntekijä',
+        desc: 'Saapuvan tavaran käsittely, varastointi ja toimitus logistiikka- ja jakelukeskuksissa.',
+        image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+        icon: <Factory />,
+        title: 'Pakkaus- & Lajittelutyöntekijä',
+        desc: 'Tuotteiden pakkaaminen, artikkeleiden lajittelu ja tuotantolinjojen tehokkuuden ylläpito.',
+        image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+        icon: <Factory />,
+        title: 'Tuotantoavustaja',
+        desc: 'Valmistusprosessien tukeminen, kokoonpano- ja laadunvalvontatyöt.',
+        image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+        icon: <Agriculture />,
+        title: 'Maatalous- & Maatilatyöntekijä',
+        desc: 'Kausityöt maatiloilla kuten istutus, sadonkorjuu ja yleinen maatilan ylläpito.',
+        image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+        icon: <CleaningServices />,
+        title: 'Siivoushenkilöstö & Avustajat',
+        desc: 'Vastuussa kaupallisesta ja yksityisestä siivouksesta, hygieniastandardien noudattaminen.',
+        image: 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+        icon: <Work />,
+        title: 'Apu- ja Ruumiillinen Työntekijä',
+        desc: 'Työskentely rakennusalalla, manuaalisissa töissä ja muussa fyysisesti vaativassa työssä.',
+        image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&auto=format&fit=crop&q=80'
+    },
+];
 
-    const skilledJobs = [
-        {
-            icon: <Restaurant />,
-            title: 'Hospitality Staff',
-            desc: 'Jobs in hotels and restaurants as waiters, cooks, or service staff.',
-            image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600'
-        },
-        {
-            icon: <Engineering />,
-            title: 'Machine Operator',
-            desc: 'Operating production machines and monitoring processes.',
-            image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600'
-        },
-        {
-            icon: <LocalShipping />,
-            title: 'Forklift Driver',
-            desc: 'Handling warehouse logistics and goods movement.',
-            image: 'https://images.unsplash.com/photo-1603732551658-5fabbafa84eb?w=600'
-        },
-        {
-            icon: <Build />,
-            title: 'Technician',
-            desc: 'Maintenance and repair of machinery and equipment.',
-            image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600'
-        },
-        {
-            icon: <DirectionsCar />,
-            title: 'Driver (Light & Heavy)',
-            desc: 'Transporting goods safely across Finland and EU.',
-            image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600'
-        }
-    ];
+const skilledJobs = [
+    {
+        icon: <Restaurant />,
+        title: 'Hotelli- & Ravintolahenkilöstö',
+        desc: 'Työ hotelleissa ja ravintoloissa tarjoilijana, kokkina, baristana tai palvelutyöntekijänä.',
+        image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+        icon: <Engineering />,
+        title: 'Tuotantokoneenkäyttäjä',
+        desc: 'Koneiden käyttö, tuotantolinjojen valvonta ja laadunvalvonta.',
+        image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+        icon: <LocalShipping />,
+        title: 'Trukinkuljettaja',
+        desc: 'Varastolaitteiden käsittely, turvallinen tavarankuljetus ja materiaalivirran ylläpito.',
+        image: 'https://images.unsplash.com/photo-1603732551658-5fabbafa84eb?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+        icon: <Build />,
+        title: 'Teknikko',
+        desc: 'Laitteiden tai järjestelmien huolto, korjaus ja vianetsintä.',
+        image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+        icon: <SupervisorAccount />,
+        title: 'Logistiikkapäällikkö',
+        desc: 'Varastotiimien johtaminen, logistiikan koordinointi ja ajallisten toimituksien varmistaminen.',
+        image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+        icon: <DirectionsCar />,
+        title: 'Kuljettaja (Kevyt & Raskas)',
+        desc: 'Turvallinen tavarankuljetus, toimituksien käsittely ja reittien hallinta.',
+        image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&auto=format&fit=crop&q=80'
+    },
+];
+
+const caretakerJobs = [
+    {
+        icon: <Elderly />,
+        title: 'Hoitaja / Caretaker',
+        desc: 'Vanhusten- tai erityisryhmien hoitotyö, päivittäisten aktiviteettien avustaminen ja henkilökohtainen hoiva.',
+        image: 'https://images.unsplash.com/photo-1581579431539-8a0375d5fe8e?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+        icon: <HealthAndSafety />,
+        title: 'Kotihoitaja',
+        desc: 'Asiakkaiden kotona tapahtuvan hoidon tarjoaminen, lääkkeiden annostelu ja perusterveydenhuollon toimenpiteet.',
+        image: 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=600&auto=format&fit=crop&q=80'
+    }
+];
 
     const benefits = [
-        { icon: <Security />, title: 'Finnish Company', desc: 'Compliant with EU labor standards' },
-        { icon: <CheckCircle />, title: 'Legal Recruitment', desc: 'Transparent & ethical hiring' },
-        { icon: <Schedule />, title: 'Fast Placement', desc: 'Quick onboarding process' },
-        { icon: <Assignment />, title: 'Visa Guidance', desc: 'Support with documentation' },
-        { icon: <SupportAgent />, title: '24/7 Support', desc: 'Dedicated recruitment team' }
+        { icon: <Security />, title: 'Suomalainen Yritys', desc: 'EU-standardien mukaiset prosessit' },
+        { icon: <CheckCircle />, title: 'Laillinen & Eettinen', desc: 'Säädöstenmukainen rekrytointi' },
+        { icon: <Schedule />, title: 'Nopea Sijoittaminen', desc: 'Nopea työnteon aloitus' },
+        { icon: <Assignment />, title: 'Viisumituki', desc: 'Asiakirja-apu' },
+        { icon: <SupportAgent />, title: '24/7 Tuki', desc: 'Omistautunut tiimi' },
+        { icon: <Translate />, title: 'Monikielinen', desc: 'Englanti, Suomi, Puola' },
+    ];
+
+    const stats = [
+        { number: '500+', label: 'Palveltua Yritystä', color: '#3b82f6' },
+        { number: '10.000+', label: 'Sijoitettua Työntekijää', color: '#10b981' },
+        { number: '25+', label: 'Schengen-maata', color: '#f59e0b' },
+        { number: '98%', label: 'Tyytyväisyysprosentti', color: '#ef4444' }
     ];
 
     const JobCard = ({ job }) => (
-        <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-            <CardMedia component="img" height="140" image={job.image} alt={job.title} />
-            <CardContent>
+        <Card
+            sx={{
+                width: 320,
+                height: 430,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                transition: "0.3s",
+                "&:hover": { transform: "translateY(-8px)" }
+            }}
+        >
+            <CardMedia
+                component="img"
+                height="140"
+                image={job.image}
+                alt={job.title}
+                sx={{ objectFit: 'cover' }}
+            />
+            <CardContent sx={{ p: 3 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <Avatar sx={{ bgcolor: '#e0f2fe', mr: 2 }}>{job.icon}</Avatar>
-                    <Typography variant="h6" fontWeight={700}>{job.title}</Typography>
+                    <Avatar sx={{ bgcolor: '#dbeafe', mr: 2 }}>{job.icon}</Avatar>
+                    <Typography variant="h6" sx={{ fontWeight: 700 }}>{job.title}</Typography>
                 </Box>
-                <Typography color="text.secondary">{job.desc}</Typography>
+                <Typography color="text.secondary" sx={{ mb: 3 }}>{job.desc}</Typography>
             </CardContent>
-            <CardActions sx={{ mt: 'auto', p: 2 }}>
-                <Button fullWidth variant="contained" onClick={() => setOpenForm(true)}>
-                    Apply Now
+            <CardActions sx={{ px: 3, pb: 3 }}>
+                <Button variant="contained" fullWidth onClick={() => setOpenForm(true)} sx={{ backgroundColor: '#3b82f6' }}>
+                    Hae nyt
                 </Button>
             </CardActions>
         </Card>
     );
 
     return (
-        <Box sx={{ bgcolor: '#f8fafc', minHeight: '100vh' }}>
+        <Box sx={{ backgroundColor: '#f8fafc', minHeight: '100vh' }}>
             {/* Header */}
-            <AppBar position="sticky" sx={{ bgcolor: 'white', color: '#0f172a' }}>
+            <AppBar position="sticky" sx={{ bgcolor: 'white', color: '#1e293b', boxShadow: 2 }}>
                 <Container>
-                    <Toolbar sx={{ justifyContent: 'space-between' }}>
+                    <Toolbar sx={{ justifyContent: 'space-between', py: 1 }}>
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
                             <Business sx={{ mr: 2, color: '#2563eb', fontSize: 32 }} />
                             <Box>
-                                <Typography variant="h6" fontWeight={800}>
-                                    JW Fulfilments OY
-                                </Typography>
-                                <Typography variant="caption" color="text.secondary">
-                                    Workforce Solutions – Finland & EU
-                                </Typography>
+                                <Typography variant="h6" sx={{ fontWeight: 800 }}>JW Fulfilments OY</Typography>
+                                <Typography variant="caption" sx={{ color: '#64748b' }}>Luotettava henkilöstöpalveluyritys Suomessa</Typography>
                             </Box>
                         </Box>
-                        <Button
-                            variant="contained"
-                            startIcon={<Person />}
-                            onClick={() => setOpenForm(true)}
-                        >
-                            Apply Now
+                        <Button variant="contained" onClick={() => setOpenForm(true)} startIcon={<Person />} sx={{ bgcolor: '#10b981', fontWeight: 600 }}>
+                            Hae nyt
                         </Button>
                     </Toolbar>
                 </Container>
             </AppBar>
 
             {/* Hero */}
-            <Box
-                sx={{
-                    backgroundImage: 'url(https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    color: 'white',
-                    py: 10,
-                    textAlign: 'center'
-                }}
-            >
-                <Container>
-                    <Typography variant="h3" fontWeight={900} gutterBottom>
-                        Work Opportunities in Finland & Europe
+            <Box sx={{
+                position: 'relative',
+                backgroundImage: 'url(https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1920&auto=format&fit=crop&q=80)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                color: 'white',
+                py: 10,
+                textAlign: 'center'
+            }}>
+                <Box sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor: 'rgba(0, 0, 0, 0.6)'
+                }} />
+                <Container sx={{ position: 'relative', zIndex: 1 }}>
+                    <Typography variant="h3" sx={{ fontWeight: 900, mb: 3 }}>
+                        JW Fulfilments OY – Luotettava henkilöstöpalveluyritys Suomessa
                     </Typography>
-                    <Typography variant="h6" sx={{ mb: 4 }}>
-                        Connecting skilled & unskilled workers with trusted employers
+                    <Typography variant="h6" sx={{ mb: 4, opacity: 0.9 }}>
+                        Koulutettujen ja kouluttamattomien työntekijöiden sijoittaminen koko Schengen-alueella
                     </Typography>
-                    <Button size="large" variant="contained" onClick={() => setOpenForm(true)}>
-                        Explore Jobs
+                    <Button variant="contained" size="large" onClick={() => setOpenForm(true)} sx={{ bgcolor: '#f59e0b', color: '#1e293b', fontWeight: 700, px: 4 }}>
+                        Hae työpaikkoja Euroopassa
                     </Button>
                 </Container>
             </Box>
 
             <Container sx={{ py: 8 }}>
-                <Typography variant="h4" fontWeight={900} align="center" gutterBottom>
-                    Available Positions
-                </Typography>
+                {/* Stats */}
+                <Grid container spacing={3} sx={{ mb: 8 }}>
+                    {stats.map((stat, i) => (
+                        <Grid item xs={6} md={3} key={i}>
+                            <Paper sx={{ p: 3, textAlign: 'center', borderRadius: 2, height: '100%' }}>
+                                <Typography variant="h3" sx={{ color: stat.color, fontWeight: 800, mb: 1 }}>{stat.number}</Typography>
+                                <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>{stat.label}</Typography>
+                            </Paper>
+                        </Grid>
+                    ))}
+                </Grid>
 
-                <Typography variant="h5" sx={{ mt: 4, mb: 2 }}>Unskilled & Entry-Level Jobs</Typography>
-                <Grid container spacing={3}>
+                {/* Apply Banner */}
+                <Paper sx={{
+                    p: 4,
+                    mb: 8,
+                    textAlign: 'center',
+                    bgcolor: '#1e40af',
+                    color: 'white',
+                    borderRadius: 2,
+                    backgroundImage: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)'
+                }}>
+                    <Typography variant="h4" gutterBottom sx={{ fontWeight: 800 }}>Valmis Eurooppalaiseen uraan?</Typography>
+                    <Typography variant="h6" sx={{ mb: 3, opacity: 0.9 }}>Hae nyt jännittäviin työmahdollisuuksiin ympäri Eurooppaa!</Typography>
+                    <Button variant="contained" size="large" onClick={() => setOpenForm(true)} sx={{ mt: 2, bgcolor: '#f59e0b', color: '#1e293b', fontWeight: 700 }}>
+                        Hae nyt - Ilmainen rekisteröityminen
+                    </Button>
+                </Paper>
+
+                {/* Jobs Section */}
+                <Typography variant="h4" gutterBottom sx={{ color: '#1e293b', fontWeight: 900, mb: 4, textAlign: 'center' }}>Avoimet Työpaikat</Typography>
+
+                <Typography variant="h5" gutterBottom sx={{ color: '#3b82f6', mb: 3, fontWeight: 700 }}>Kouluttamattomat & Perustyöt</Typography>
+                <Grid container spacing={3} sx={{ mb: 6 }}>
                     {unskilledJobs.map((job, i) => (
                         <Grid item xs={12} sm={6} md={4} key={i}>
                             <JobCard job={job} />
@@ -212,8 +279,8 @@ const Home = () => {
                     ))}
                 </Grid>
 
-                <Typography variant="h5" sx={{ mt: 6, mb: 2 }}>Skilled & Professional Jobs</Typography>
-                <Grid container spacing={3}>
+                <Typography variant="h5" gutterBottom sx={{ color: '#3b82f6', mb: 3, fontWeight: 700 }}>Ammattitaitoiset & Asiantuntijatyöt</Typography>
+                <Grid container spacing={3} sx={{ mb: 6 }}>
                     {skilledJobs.map((job, i) => (
                         <Grid item xs={12} sm={6} md={4} key={i}>
                             <JobCard job={job} />
@@ -221,106 +288,272 @@ const Home = () => {
                     ))}
                 </Grid>
 
-                {/* Benefits */}
-                <Paper sx={{ p: 5, mt: 8 }}>
-                    <Typography variant="h4" align="center" fontWeight={900} gutterBottom>
-                        Why Choose JW Fulfilments OY?
+                <Typography variant="h5" gutterBottom sx={{ color: '#3b82f6', mb: 3, fontWeight: 700 }}>Hoitoala & Caretaker Työt</Typography>
+                <Grid container spacing={3} sx={{ mb: 8 }}>
+                    {caretakerJobs.map((job, i) => (
+                        <Grid item xs={12} sm={6} md={4} key={i}>
+                            <JobCard job={job} />
+                        </Grid>
+                    ))}
+                </Grid>
+
+                {/* Benefits Section */}
+                <Paper
+                    sx={{
+                        p: { xs: 3, md: 5 },
+                        mb: 8,
+                        borderRadius: 3,
+                        bgcolor: 'white',
+                        boxShadow: 3,
+                    }}
+                >
+                    <Typography
+                        variant="h4"
+                        align="center"
+                        gutterBottom
+                        sx={{
+                            fontWeight: 900,
+                            mb: 6,
+                            color: '#1e293b',
+                        }}
+                    >
+                        Miksi valita JW Fulfilments OY?
                     </Typography>
-                    <Grid container spacing={4} justifyContent="center">
-                        {benefits.map((b, i) => (
-                            <Grid item xs={12} sm={6} md={4} key={i} textAlign="center">
-                                <Avatar sx={{ bgcolor: '#e0f2fe', mx: 'auto', mb: 2 }}>
-                                    {b.icon}
-                                </Avatar>
-                                <Typography variant="h6" fontWeight={700}>{b.title}</Typography>
-                                <Typography color="text.secondary">{b.desc}</Typography>
+
+                    <Grid container spacing={{ xs: 4, md: 6 }} justifyContent="center">
+                        {benefits.map((benefit, i) => (
+                            <Grid
+                                item
+                                xs={12}
+                                sm={6}
+                                md={4}
+                                key={i}
+                                sx={{ display: 'flex', justifyContent: 'center' }}
+                            >
+                                <Box sx={{ textAlign: 'center', maxWidth: 300, px: 2 }}>
+                                    <Avatar
+                                        sx={{
+                                            bgcolor: '#dbeafe',
+                                            width: 70,
+                                            height: 70,
+                                            margin: '0 auto 20px',
+                                            '& .MuiSvgIcon-root': { fontSize: 32, color: '#3b82f6' },
+                                        }}
+                                    >
+                                        {benefit.icon}
+                                    </Avatar>
+
+                                    <Typography
+                                        variant="h6"
+                                        gutterBottom
+                                        sx={{ fontWeight: 700, color: '#1e293b', mb: 1 }}
+                                    >
+                                        {benefit.title}
+                                    </Typography>
+
+                                    <Typography color="text.secondary" sx={{ fontSize: 15 }}>
+                                        {benefit.desc}
+                                    </Typography>
+                                </Box>
                             </Grid>
                         ))}
                     </Grid>
                 </Paper>
 
-                {/* Contact */}
-                <Paper sx={{ p: 5, mt: 8 }}>
-                    <Typography variant="h4" fontWeight={900} gutterBottom>
-                        Contact Us – Finland Office
-                    </Typography>
-                    <Typography>
-                        JW Fulfilments OY<br />
-                        Kelhontie 254<br />
-                        37500 Lempäälä<br />
-                        Suomi
-                    </Typography>
 
-                    <Stack spacing={2} sx={{ mt: 2 }}>
-                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                            <Email sx={{ mr: 1 }} />
-                            <Typography>info@jwffulfilments.com</Typography>
-                        </Box>
-                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                            <Phone sx={{ mr: 1 }} />
-                            <Typography>+358 (Finland)</Typography>
-                        </Box>
-                    </Stack>
+                {/* Contact Section with Images */}
+                <Grid container spacing={4} sx={{ mb: 8 }}>
+                    <Grid item xs={12} md={6}>
+                        <Card sx={{ height: '100%', borderRadius: 3, overflow: 'hidden' }}>
+                            <CardMedia
+                                component="img"
+                                height="200"
+                                image="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=1200&auto=format&fit=crop&q=80"
+                                alt="Suomen Toimisto"
+                                sx={{ objectFit: 'cover' }}
+                            />
+                            <CardContent sx={{ p: 4 }}>
+                                <Typography variant="h5" gutterBottom sx={{ fontWeight: 800, display: 'flex', alignItems: 'center' }}>
+                                    <LocationOn sx={{ mr: 1, color: '#3b82f6' }} />
+                                    Pääkonttori - Suomi
+                                </Typography>
+                                <Typography variant="h6" sx={{ mb: 2, color: '#64748b' }}>JW Fulfilments OY</Typography>
+                                <Typography sx={{ mb: 3 }}>
+                                    Kelhontie 254, Lempäälä<br />
+                                    PL: 37500, Suomi
+                                </Typography>
+                                <Stack spacing={2}>
+                                    <Link href="mailto:info@jwfulfilments.fi" sx={{ display: 'flex', alignItems: 'center', color: '#3b82f6', textDecoration: 'none' }}>
+                                        <Email sx={{ mr: 1 }} /> info@jwfulfilments.fi
+                                    </Link>
+                                    <Link href="tel:+358XXXXXXXXX" sx={{ display: 'flex', alignItems: 'center', color: '#3b82f6', textDecoration: 'none' }}>
+                                        <Phone sx={{ mr: 1 }} /> +358 XXX XXX XXX
+                                    </Link>
+                                </Stack>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <Card sx={{
+                            height: '100%',
+                            borderRadius: 3,
+                            bgcolor: '#f0f9ff',
+                            backgroundImage: 'url(https://images.unsplash.com/photo-1551836026-d5c2c0b4d8e9?w=600&auto=format&fit=crop&q=80)',
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            position: 'relative'
+                        }}>
+                            <Box sx={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                bottom: 0,
+                                bgcolor: 'rgba(240, 249, 255, 0.9)'
+                            }} />
+                            <CardContent sx={{ p: 4, position: 'relative', zIndex: 1 }}>
+                                <Typography variant="h5" gutterBottom sx={{ fontWeight: 800 }}>Nopea Hakemus</Typography>
+                                <Typography sx={{ mb: 3 }}>Lähetä tietosi ja rekrytointitiimimme ottaa sinuun yhteyttä 24 tunnin sisällä.</Typography>
+                                <Button
+                                    variant="contained"
+                                    fullWidth
+                                    size="large"
+                                    onClick={() => setOpenForm(true)}
+                                    sx={{
+                                        bgcolor: '#10b981',
+                                        fontWeight: 700,
+                                        py: 2,
+                                        fontSize: '1.1rem',
+                                        '&:hover': { bgcolor: '#059669' }
+                                    }}
+                                >
+                                    Aloita hakemus
+                                </Button>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                </Grid>
+
+                {/* Footer with Logo */}
+                <Paper sx={{ p: 4, bgcolor: '#1e293b', color: 'white', borderRadius: 3 }}>
+                    <Grid container spacing={4}>
+                        <Grid item xs={12} md={4}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                                <Business sx={{ mr: 2, fontSize: 40, color: '#3b82f6' }} />
+                                <Box>
+                                    <Typography variant="h6" sx={{ fontWeight: 800 }}>JW Fulfilments OY</Typography>
+                                    <Typography variant="body2" sx={{ opacity: 0.8 }}>Henkilöstöratkaisut Suomessa</Typography>
+                                </Box>
+                            </Box>
+                            <Typography variant="body2" sx={{ opacity: 0.7 }}>
+                                Vuodesta 2015 lähtien olemme yhdistäneet lahjakkuuksia ja mahdollisuuksia koko Schengen-alueella.
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <Typography variant="h6" gutterBottom sx={{ fontWeight: 700 }}>Yhteystiedot</Typography>
+                            <Stack spacing={2}>
+                                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                    <WhatsApp sx={{ mr: 2, color: '#25d366' }} />
+                                    <Typography>+358 XXX XXX XXX</Typography>
+                                </Box>
+                                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                    <Email sx={{ mr: 2, color: '#3b82f6' }} />
+                                    <Typography>info@jwfulfilments.fi</Typography>
+                                </Box>
+                                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                    <LocationOn sx={{ mr: 2, color: '#ef4444' }} />
+                                    <Typography>Lempäälä, Suomi</Typography>
+                                </Box>
+                            </Stack>
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <Typography variant="h6" gutterBottom sx={{ fontWeight: 700 }}>Pikalinkit</Typography>
+                            <Stack spacing={1}>
+                                <Link href="#" color="inherit" sx={{ opacity: 0.8, '&:hover': { opacity: 1 } }}>Työnantajille</Link>
+                                <Link href="#" color="inherit" sx={{ opacity: 0.8, '&:hover': { opacity: 1 } }}>Työnhakijoille</Link>
+                                <Link href="#" color="inherit" sx={{ opacity: 0.8, '&:hover': { opacity: 1 } }}>Avoimet Työpaikat</Link>
+                                <Link href="#" color="inherit" sx={{ opacity: 0.8, '&:hover': { opacity: 1 } }} onClick={() => setOpenForm(true)}>Hae nyt</Link>
+                            </Stack>
+                        </Grid>
+                    </Grid>
+                    <Divider sx={{ my: 3, bgcolor: 'rgba(255,255,255,0.1)' }} />
+                    <Typography variant="body2" align="center" sx={{ opacity: 0.6 }}>
+                        © {new Date().getFullYear()} JW Fulfilments OY. Kaikki oikeudet pidätetään. | Suomalainen rekrytointiyritys
+                    </Typography>
                 </Paper>
-
-                <Divider sx={{ my: 4 }} />
-
-                <Typography align="center" color="text.secondary">
-                    © {new Date().getFullYear()} JW Fulfilments OY – Finland. All rights reserved.
-                </Typography>
             </Container>
 
             {/* Form Dialog */}
-            <Dialog open={openForm} onClose={() => !loading && setOpenForm(false)} fullWidth maxWidth="sm">
-                <DialogTitle>
-                    Apply for a Job
-                    <IconButton
-                        onClick={() => setOpenForm(false)}
-                        sx={{ position: 'absolute', right: 8, top: 8 }}
-                    >
-                        <Close />
-                    </IconButton>
+            <Dialog open={openForm} onClose={() => !loading && setOpenForm(false)} maxWidth="sm" fullWidth>
+                <DialogTitle sx={{ bgcolor: '#1e40af', color: 'white' }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <Typography variant="h6" sx={{ fontWeight: 700 }}>Hakemuslomake</Typography>
+                        <IconButton onClick={() => !loading && setOpenForm(false)} sx={{ color: 'white' }} disabled={loading}>
+                            <Close />
+                        </IconButton>
+                    </Box>
                 </DialogTitle>
-                <DialogContent>
-                    <form onSubmit={handleSubmit}>
-                        <Grid container spacing={2} sx={{ mt: 1 }}>
+                <DialogContent sx={{ p: 3 }}>
+                    <form onSubmit={handleSubmit} style={{ marginTop: '20px', marginBottom: '20px' }}>
+
+                        <Grid container spacing={2}>
                             <Grid item xs={12}>
-                                <TextField fullWidth label="Full Name" name="fullName" required onChange={handleFormChange} />
+                                <TextField fullWidth required label="Koko Nimi" name="fullName" value={formData.fullName} onChange={handleFormChange} disabled={loading} />
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField fullWidth label="Email" name="email" required onChange={handleFormChange} />
+                                <TextField fullWidth required label="Sähköpostiosoite" name="email" type="email" value={formData.email} onChange={handleFormChange} disabled={loading} />
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField fullWidth label="Phone" name="phone" required onChange={handleFormChange} />
+                                <TextField fullWidth required label="Puhelinnumero" name="phone" value={formData.phone} onChange={handleFormChange} disabled={loading} />
                             </Grid>
-                            <Grid item xs={12}>
-                                <FormControl fullWidth>
-                                    <InputLabel>Position</InputLabel>
-                                    <Select name="position" onChange={handleFormChange}>
-                                        <MenuItem value="warehouse">Warehouse</MenuItem>
-                                        <MenuItem value="production">Production</MenuItem>
-                                        <MenuItem value="agriculture">Agriculture</MenuItem>
-                                        <MenuItem value="hospitality">Hospitality</MenuItem>
-                                        <MenuItem value="driver">Driver</MenuItem>
+                            <Grid item xs={12} md={6}>
+                                <FormControl fullWidth required>
+                                    <InputLabel>Haettu Tehtävä</InputLabel>
+                                    <Select name="position" value={formData.position} onChange={handleFormChange} label="Haettu Tehtävä" disabled={loading}>
+                                        <MenuItem value="warehouse">Varastotyöntekijä</MenuItem>
+                                        <MenuItem value="production">Tuotantoavustaja</MenuItem>
+                                        <MenuItem value="agriculture">Maataloustyöntekijä</MenuItem>
+                                        <MenuItem value="hospitality">Hotelli- ja ravintolahenkilöstö</MenuItem>
+                                        <MenuItem value="driver">Kuljettaja</MenuItem>
+                                        <MenuItem value="caretaker">Hoitaja / Caretaker</MenuItem>
+                                        <MenuItem value="other">Muu</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </Grid>
+                            <Grid item xs={12} md={6}>
+                                <FormControl fullWidth required>
+                                    <InputLabel>Kokemustaso</InputLabel>
+                                    <Select name="experience" value={formData.experience} onChange={handleFormChange} label="Kokemustaso" disabled={loading}>
+                                        <MenuItem value="none">Ei kokemusta</MenuItem>
+                                        <MenuItem value="less1">Alle 1 vuosi</MenuItem>
+                                        <MenuItem value="1-3">1-3 vuotta</MenuItem>
+                                        <MenuItem value="3-5">3-5 vuotta</MenuItem>
+                                        <MenuItem value="5+">5+ vuotta</MenuItem>
                                     </Select>
                                 </FormControl>
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField fullWidth label="Nationality" name="nationality" onChange={handleFormChange} />
+                                <TextField fullWidth required label="Kansalaisuus" name="nationality" value={formData.nationality} onChange={handleFormChange} disabled={loading} />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField fullWidth multiline rows={3} label="Lisätietoja / Viesti" name="message" value={formData.message} onChange={handleFormChange} disabled={loading} />
                             </Grid>
                         </Grid>
-                        <DialogActions sx={{ mt: 2 }}>
-                            <Button onClick={() => setOpenForm(false)}>Cancel</Button>
-                            <Button type="submit" variant="contained">Submit</Button>
+                        <DialogActions sx={{ mt: 3, px: 0 }}>
+                            <Button onClick={() => setOpenForm(false)} disabled={loading}>Peruuta</Button>
+                            <Button type="submit" variant="contained" disabled={loading} sx={{ bgcolor: '#10b981' }}>
+                                {loading ? 'Lähetetään...' : 'Lähetä Hakemus'}
+                            </Button>
                         </DialogActions>
                     </form>
                 </DialogContent>
             </Dialog>
 
-            {/* Success */}
-            <Snackbar open={openSuccess} autoHideDuration={5000} onClose={() => setOpenSuccess(false)}>
-                <Alert severity="success" variant="filled">
-                    Application submitted successfully!
+            {/* Success Alert */}
+            <Snackbar open={openSuccess} autoHideDuration={6000} onClose={() => setOpenSuccess(false)} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+                <Alert onClose={() => setOpenSuccess(false)} severity="success" variant="filled" sx={{ width: '100%' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 700 }}>Hakemus lähetetty onnistuneesti!</Typography>
+                    <Typography>Rekrytointitiimimme ottaa sinuun yhteyttä 24 tunnin sisällä.</Typography>
                 </Alert>
             </Snackbar>
         </Box>
