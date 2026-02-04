@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import {
-    AppBar, Toolbar, Typography, Container, Grid, Card, CardContent,
-    Button, Box, Paper, Divider, Stack, Link, IconButton,
-    CardActions, Avatar, Dialog, DialogTitle, DialogContent,
-    DialogActions, TextField, MenuItem, Select, FormControl,
-    InputLabel, Snackbar, Alert, CardMedia
+  AppBar, Toolbar, Typography, Container, Grid, Card, CardContent,
+  Button, Box, Paper, IconButton,
+  CardActions, Avatar, Dialog, DialogTitle, DialogContent,
+  DialogActions, TextField, MenuItem, Select, FormControl,
+  InputLabel, Snackbar, Alert, CardMedia
 } from '@mui/material';
 
+
 import {
-    Phone, Email, LocationOn, Work, CheckCircle,
-    Business, WhatsApp, Security,
-    Assignment, SupportAgent, Translate, Schedule,
-    Factory, Warehouse, Agriculture, CleaningServices,
-    Restaurant, LocalShipping, Build, DirectionsCar,
-    SupervisorAccount, Engineering, Person, Close
+  Work, CheckCircle,
+  Business, Security,
+  Assignment, SupportAgent, Translate, Schedule,
+  Factory, Warehouse, Agriculture, CleaningServices,
+  Restaurant, LocalShipping, DirectionsCar,
+  SupervisorAccount, Engineering, Person, Close
 } from '@mui/icons-material';
+
 
 const Home = () => {
 
