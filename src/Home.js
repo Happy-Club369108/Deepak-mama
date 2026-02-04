@@ -13,7 +13,7 @@ import {
     Factory, Warehouse, Agriculture, CleaningServices,
     Restaurant, LocalShipping, Build, DirectionsCar,
     SupervisorAccount, Engineering, Person, Close, Send, Check,
-    Home, Elderly, Care
+    Elderly, HealthAndSafety
 } from '@mui/icons-material';
 
 const Home = () => {
@@ -47,58 +47,52 @@ const unskilledJobs = [
     {
         icon: <Warehouse />,
         title: 'Varastotyöntekijä',
-        desc: 'Tavaroiden vastaanotto, varastointi ja lähetys logistiikka- ja jakelukeskuksissa.',
+        desc: 'Saapuvan tavaran käsittely, varastointi ja toimitus logistiikka- ja jakelukeskuksissa.',
         image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&auto=format&fit=crop&q=80'
     },
     {
         icon: <Factory />,
         title: 'Pakkaus- & Lajittelutyöntekijä',
-        desc: 'Tuotteiden pakkaaminen, tuotteiden lajittelu ja tuotantolinjan tehokkuuden ylläpito.',
+        desc: 'Tuotteiden pakkaaminen, artikkeleiden lajittelu ja tuotantolinjojen tehokkuuden ylläpito.',
         image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&auto=format&fit=crop&q=80'
     },
     {
         icon: <Factory />,
         title: 'Tuotantoavustaja',
-        desc: 'Valmistusprosessien tuki, kokoonpano- ja laadunvalvontatyöt.',
+        desc: 'Valmistusprosessien tukeminen, kokoonpano- ja laadunvalvontatyöt.',
         image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&auto=format&fit=crop&q=80'
     },
     {
         icon: <Agriculture />,
-        title: 'Maatalous- & Farmityöntekijä',
-        desc: 'Kausityöt viljelyssä, sadonkorjuussa ja yleisessä maatilan ylläpidossa.',
+        title: 'Maatalous- & Maatilatyöntekijä',
+        desc: 'Kausityöt maatiloilla kuten istutus, sadonkorjuu ja yleinen maatilan ylläpito.',
         image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&auto=format&fit=crop&q=80'
     },
     {
         icon: <CleaningServices />,
-        title: 'Siivoushenkilökunta & Avustajat',
-        desc: 'Vastuussa kaupallisesta ja yksityisestä siivouksesta, hygieniatasojen noudattaminen.',
+        title: 'Siivoushenkilöstö & Avustajat',
+        desc: 'Vastuussa kaupallisesta ja yksityisestä siivouksesta, hygieniastandardien noudattaminen.',
         image: 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&auto=format&fit=crop&q=80'
     },
     {
         icon: <Work />,
-        title: 'Apu- ja rakennustyöntekijä',
+        title: 'Apu- ja Ruumiillinen Työntekijä',
         desc: 'Työskentely rakennusalalla, manuaalisissa töissä ja muussa fyysisesti vaativassa työssä.',
         image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&auto=format&fit=crop&q=80'
-    },
-    {
-        icon: <Care />,
-        title: 'Hoitaja / Kotiapulainen',
-        desc: 'Vanhusten ja erityisryhmien hoitotyö, kotiapulaisen tehtävät ja henkilökohtainen avustus.',
-        image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&auto=format&fit=crop&q=80'
     },
 ];
 
 const skilledJobs = [
     {
         icon: <Restaurant />,
-        title: 'Palvelualahenkilöstö',
-        desc: 'Työskentely hotelleissa ja ravintoloissa tarjoilijana, kokkina, baristana tai palvelutyöntekijänä.',
+        title: 'Hotelli- & Ravintolahenkilöstö',
+        desc: 'Työ hotelleissa ja ravintoloissa tarjoilijana, kokkina, baristana tai palvelutyöntekijänä.',
         image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&auto=format&fit=crop&q=80'
     },
     {
         icon: <Engineering />,
         title: 'Tuotantokoneenkäyttäjä',
-        desc: 'Koneiden käyttö, tuotantolinjojen valvonta ja laatuvaatimusten turvaaminen.',
+        desc: 'Koneiden käyttö, tuotantolinjojen valvonta ja laadunvalvonta.',
         image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600&auto=format&fit=crop&q=80'
     },
     {
@@ -110,37 +104,52 @@ const skilledJobs = [
     {
         icon: <Build />,
         title: 'Teknikko',
-        desc: 'Laitteiden ja järjestelmien huolto, korjaus ja vianetsintä.',
+        desc: 'Laitteiden tai järjestelmien huolto, korjaus ja vianetsintä.',
         image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600&auto=format&fit=crop&q=80'
     },
     {
         icon: <SupervisorAccount />,
         title: 'Logistiikkapäällikkö',
-        desc: 'Varastotiimien johtaminen, logistiikan koordinointi ja aikataulussa pysyminen.',
+        desc: 'Varastotiimien johtaminen, logistiikan koordinointi ja ajallisten toimituksien varmistaminen.',
         image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=80'
     },
     {
         icon: <DirectionsCar />,
         title: 'Kuljettaja (Kevyt & Raskas)',
-        desc: 'Vastuussa turvallisesta tavarankuljetuksesta, toimituksista ja reittien hallinnasta.',
+        desc: 'Turvallinen tavarankuljetus, toimituksien käsittely ja reittien hallinta.',
         image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&auto=format&fit=crop&q=80'
     },
 ];
 
+const caretakerJobs = [
+    {
+        icon: <Elderly />,
+        title: 'Hoitaja / Caretaker',
+        desc: 'Vanhusten- tai erityisryhmien hoitotyö, päivittäisten aktiviteettien avustaminen ja henkilökohtainen hoiva.',
+        image: 'https://images.unsplash.com/photo-1581579431539-8a0375d5fe8e?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+        icon: <HealthAndSafety />,
+        title: 'Kotihoitaja',
+        desc: 'Asiakkaiden kotona tapahtuvan hoidon tarjoaminen, lääkkeiden annostelu ja perusterveydenhuollon toimenpiteet.',
+        image: 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=600&auto=format&fit=crop&q=80'
+    }
+];
+
     const benefits = [
-        { icon: <Security />, title: 'Suomalainen yritys', desc: 'EU-standardiprosessit' },
-        { icon: <CheckCircle />, title: 'Laillinen ja eettinen', desc: 'Säädösten mukainen rekrytointi' },
-        { icon: <Schedule />, title: 'Nopea työllistäminen', desc: 'Nopea aloitus' },
-        { icon: <Assignment />, title: 'Visa-tuki', desc: 'Tuki asiakirjahommista' },
-        { icon: <SupportAgent />, title: '24/7 tuki', desc: 'Omistautunut tiimi' },
-        { icon: <Translate />, title: 'Monikielinen palvelu', desc: 'Suomi, Englanti, Puola' },
+        { icon: <Security />, title: 'Suomalainen Yritys', desc: 'EU-standardien mukaiset prosessit' },
+        { icon: <CheckCircle />, title: 'Laillinen & Eettinen', desc: 'Säädöstenmukainen rekrytointi' },
+        { icon: <Schedule />, title: 'Nopea Sijoittaminen', desc: 'Nopea työnteon aloitus' },
+        { icon: <Assignment />, title: 'Viisumituki', desc: 'Asiakirja-apu' },
+        { icon: <SupportAgent />, title: '24/7 Tuki', desc: 'Omistautunut tiimi' },
+        { icon: <Translate />, title: 'Monikielinen', desc: 'Englanti, Suomi, Puola' },
     ];
 
     const stats = [
-        { number: '500+', label: 'Asiakasyritystä', color: '#3b82f6' },
-        { number: '10.000+', label: 'Työllistettyä työntekijää', color: '#10b981' },
+        { number: '500+', label: 'Palveltua Yritystä', color: '#3b82f6' },
+        { number: '10.000+', label: 'Sijoitettua Työntekijää', color: '#10b981' },
         { number: '25+', label: 'Schengen-maata', color: '#f59e0b' },
-        { number: '98%', label: 'Tyydytyksen taso', color: '#ef4444' }
+        { number: '98%', label: 'Tyytyväisyysprosentti', color: '#ef4444' }
     ];
 
     const JobCard = ({ job }) => (
@@ -171,7 +180,7 @@ const skilledJobs = [
             </CardContent>
             <CardActions sx={{ px: 3, pb: 3 }}>
                 <Button variant="contained" fullWidth onClick={() => setOpenForm(true)} sx={{ backgroundColor: '#3b82f6' }}>
-                    Apply now
+                    Hae nyt
                 </Button>
             </CardActions>
         </Card>
@@ -191,7 +200,7 @@ const skilledJobs = [
                             </Box>
                         </Box>
                         <Button variant="contained" onClick={() => setOpenForm(true)} startIcon={<Person />} sx={{ bgcolor: '#10b981', fontWeight: 600 }}>
-                            Apply now
+                            Hae nyt
                         </Button>
                     </Toolbar>
                 </Container>
@@ -200,7 +209,7 @@ const skilledJobs = [
             {/* Hero */}
             <Box sx={{
                 position: 'relative',
-                backgroundImage: 'url(https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=1920&auto=format&fit=crop&q=80)',
+                backgroundImage: 'url(https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1920&auto=format&fit=crop&q=80)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 color: 'white',
@@ -220,10 +229,10 @@ const skilledJobs = [
                         JW Fulfilments OY – Luotettava henkilöstöpalveluyritys Suomessa
                     </Typography>
                     <Typography variant="h6" sx={{ mb: 4, opacity: 0.9 }}>
-                        Koulutettujen ja kouluttamattomien työntekijöiden välittäminen koko Schengen-alueella
+                        Koulutettujen ja kouluttamattomien työntekijöiden sijoittaminen koko Schengen-alueella
                     </Typography>
                     <Button variant="contained" size="large" onClick={() => setOpenForm(true)} sx={{ bgcolor: '#f59e0b', color: '#1e293b', fontWeight: 700, px: 4 }}>
-                        Apply for jobs in Finland
+                        Hae työpaikkoja Euroopassa
                     </Button>
                 </Container>
             </Box>
@@ -251,15 +260,15 @@ const skilledJobs = [
                     borderRadius: 2,
                     backgroundImage: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)'
                 }}>
-                    <Typography variant="h4" gutterBottom sx={{ fontWeight: 800 }}>Valmis uraan Suomessa?</Typography>
-                    <Typography variant="h6" sx={{ mb: 3, opacity: 0.9 }}>Hae nyt jännittäviin työmahdollisuuksiin koko Suomessa!</Typography>
+                    <Typography variant="h4" gutterBottom sx={{ fontWeight: 800 }}>Valmis Eurooppalaiseen uraan?</Typography>
+                    <Typography variant="h6" sx={{ mb: 3, opacity: 0.9 }}>Hae nyt jännittäviin työmahdollisuuksiin ympäri Eurooppaa!</Typography>
                     <Button variant="contained" size="large" onClick={() => setOpenForm(true)} sx={{ mt: 2, bgcolor: '#f59e0b', color: '#1e293b', fontWeight: 700 }}>
-                        Apply now - Free registration
+                        Hae nyt - Ilmainen rekisteröityminen
                     </Button>
                 </Paper>
 
                 {/* Jobs Section */}
-                <Typography variant="h4" gutterBottom sx={{ color: '#1e293b', fontWeight: 900, mb: 4, textAlign: 'center' }}>Avoimet työpaikat</Typography>
+                <Typography variant="h4" gutterBottom sx={{ color: '#1e293b', fontWeight: 900, mb: 4, textAlign: 'center' }}>Avoimet Työpaikat</Typography>
 
                 <Typography variant="h5" gutterBottom sx={{ color: '#3b82f6', mb: 3, fontWeight: 700 }}>Kouluttamattomat & Perustyöt</Typography>
                 <Grid container spacing={3} sx={{ mb: 6 }}>
@@ -270,9 +279,18 @@ const skilledJobs = [
                     ))}
                 </Grid>
 
-                <Typography variant="h5" gutterBottom sx={{ color: '#3b82f6', mb: 3, fontWeight: 700 }}>Koulutetut & Ammattitaitoiset työt</Typography>
-                <Grid container spacing={3} sx={{ mb: 8 }}>
+                <Typography variant="h5" gutterBottom sx={{ color: '#3b82f6', mb: 3, fontWeight: 700 }}>Ammattitaitoiset & Asiantuntijatyöt</Typography>
+                <Grid container spacing={3} sx={{ mb: 6 }}>
                     {skilledJobs.map((job, i) => (
+                        <Grid item xs={12} sm={6} md={4} key={i}>
+                            <JobCard job={job} />
+                        </Grid>
+                    ))}
+                </Grid>
+
+                <Typography variant="h5" gutterBottom sx={{ color: '#3b82f6', mb: 3, fontWeight: 700 }}>Hoitoala & Caretaker Työt</Typography>
+                <Grid container spacing={3} sx={{ mb: 8 }}>
+                    {caretakerJobs.map((job, i) => (
                         <Grid item xs={12} sm={6} md={4} key={i}>
                             <JobCard job={job} />
                         </Grid>
@@ -350,8 +368,8 @@ const skilledJobs = [
                             <CardMedia
                                 component="img"
                                 height="200"
-                                image="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?w=1200&auto=format&fit=crop&q=80"
-                                alt="Suomi toimisto"
+                                image="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=1200&auto=format&fit=crop&q=80"
+                                alt="Suomen Toimisto"
                                 sx={{ objectFit: 'cover' }}
                             />
                             <CardContent sx={{ p: 4 }}>
@@ -394,8 +412,8 @@ const skilledJobs = [
                                 bgcolor: 'rgba(240, 249, 255, 0.9)'
                             }} />
                             <CardContent sx={{ p: 4, position: 'relative', zIndex: 1 }}>
-                                <Typography variant="h5" gutterBottom sx={{ fontWeight: 800 }}>Nopea hakemus</Typography>
-                                <Typography sx={{ mb: 3 }}>Lähetä tietosi ja rekrytointitiimimme ottaa sinuun yhteyttä 24 tunnin kuluessa.</Typography>
+                                <Typography variant="h5" gutterBottom sx={{ fontWeight: 800 }}>Nopea Hakemus</Typography>
+                                <Typography sx={{ mb: 3 }}>Lähetä tietosi ja rekrytointitiimimme ottaa sinuun yhteyttä 24 tunnin sisällä.</Typography>
                                 <Button
                                     variant="contained"
                                     fullWidth
@@ -409,7 +427,7 @@ const skilledJobs = [
                                         '&:hover': { bgcolor: '#059669' }
                                     }}
                                 >
-                                    Start application
+                                    Aloita hakemus
                                 </Button>
                             </CardContent>
                         </Card>
@@ -424,11 +442,11 @@ const skilledJobs = [
                                 <Business sx={{ mr: 2, fontSize: 40, color: '#3b82f6' }} />
                                 <Box>
                                     <Typography variant="h6" sx={{ fontWeight: 800 }}>JW Fulfilments OY</Typography>
-                                    <Typography variant="body2" sx={{ opacity: 0.8 }}>Workforce Solutions Finland</Typography>
+                                    <Typography variant="body2" sx={{ opacity: 0.8 }}>Henkilöstöratkaisut Suomessa</Typography>
                                 </Box>
                             </Box>
                             <Typography variant="body2" sx={{ opacity: 0.7 }}>
-                                Vuodesta 2015 lähtien olemme yhdistäneet lahjakkuuksia mahdollisuuksiin koko Schengen-alueella.
+                                Vuodesta 2015 lähtien olemme yhdistäneet lahjakkuuksia ja mahdollisuuksia koko Schengen-alueella.
                             </Typography>
                         </Grid>
                         <Grid item xs={12} md={4}>
@@ -453,14 +471,14 @@ const skilledJobs = [
                             <Stack spacing={1}>
                                 <Link href="#" color="inherit" sx={{ opacity: 0.8, '&:hover': { opacity: 1 } }}>Työnantajille</Link>
                                 <Link href="#" color="inherit" sx={{ opacity: 0.8, '&:hover': { opacity: 1 } }}>Työnhakijoille</Link>
-                                <Link href="#" color="inherit" sx={{ opacity: 0.8, '&:hover': { opacity: 1 } }}>Avoimet työpaikat</Link>
+                                <Link href="#" color="inherit" sx={{ opacity: 0.8, '&:hover': { opacity: 1 } }}>Avoimet Työpaikat</Link>
                                 <Link href="#" color="inherit" sx={{ opacity: 0.8, '&:hover': { opacity: 1 } }} onClick={() => setOpenForm(true)}>Hae nyt</Link>
                             </Stack>
                         </Grid>
                     </Grid>
                     <Divider sx={{ my: 3, bgcolor: 'rgba(255,255,255,0.1)' }} />
                     <Typography variant="body2" align="center" sx={{ opacity: 0.6 }}>
-                        © {new Date().getFullYear()} JW Fulfilments OY. Kaikki oikeudet pidätetään. | Suomalainen rekrytointiyhtiö
+                        © {new Date().getFullYear()} JW Fulfilments OY. Kaikki oikeudet pidätetään. | Suomalainen rekrytointiyritys
                     </Typography>
                 </Paper>
             </Container>
@@ -469,7 +487,7 @@ const skilledJobs = [
             <Dialog open={openForm} onClose={() => !loading && setOpenForm(false)} maxWidth="sm" fullWidth>
                 <DialogTitle sx={{ bgcolor: '#1e40af', color: 'white' }}>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <Typography variant="h6" sx={{ fontWeight: 700 }}>Application form</Typography>
+                        <Typography variant="h6" sx={{ fontWeight: 700 }}>Hakemuslomake</Typography>
                         <IconButton onClick={() => !loading && setOpenForm(false)} sx={{ color: 'white' }} disabled={loading}>
                             <Close />
                         </IconButton>
@@ -480,32 +498,32 @@ const skilledJobs = [
 
                         <Grid container spacing={2}>
                             <Grid item xs={12}>
-                                <TextField fullWidth required label="Full name" name="fullName" value={formData.fullName} onChange={handleFormChange} disabled={loading} />
+                                <TextField fullWidth required label="Koko Nimi" name="fullName" value={formData.fullName} onChange={handleFormChange} disabled={loading} />
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField fullWidth required label="Email address" name="email" type="email" value={formData.email} onChange={handleFormChange} disabled={loading} />
+                                <TextField fullWidth required label="Sähköpostiosoite" name="email" type="email" value={formData.email} onChange={handleFormChange} disabled={loading} />
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField fullWidth required label="Phone number" name="phone" value={formData.phone} onChange={handleFormChange} disabled={loading} />
+                                <TextField fullWidth required label="Puhelinnumero" name="phone" value={formData.phone} onChange={handleFormChange} disabled={loading} />
                             </Grid>
                             <Grid item xs={12} md={6}>
                                 <FormControl fullWidth required>
-                                    <InputLabel>Desired position</InputLabel>
-                                    <Select name="position" value={formData.position} onChange={handleFormChange} label="Desired position" disabled={loading}>
+                                    <InputLabel>Haettu Tehtävä</InputLabel>
+                                    <Select name="position" value={formData.position} onChange={handleFormChange} label="Haettu Tehtävä" disabled={loading}>
                                         <MenuItem value="warehouse">Varastotyöntekijä</MenuItem>
                                         <MenuItem value="production">Tuotantoavustaja</MenuItem>
                                         <MenuItem value="agriculture">Maataloustyöntekijä</MenuItem>
-                                        <MenuItem value="hospitality">Palvelualahenkilöstö</MenuItem>
+                                        <MenuItem value="hospitality">Hotelli- ja ravintolahenkilöstö</MenuItem>
                                         <MenuItem value="driver">Kuljettaja</MenuItem>
-                                        <MenuItem value="caretaker">Hoitaja / Kotiapulainen</MenuItem>
+                                        <MenuItem value="caretaker">Hoitaja / Caretaker</MenuItem>
                                         <MenuItem value="other">Muu</MenuItem>
                                     </Select>
                                 </FormControl>
                             </Grid>
                             <Grid item xs={12} md={6}>
                                 <FormControl fullWidth required>
-                                    <InputLabel>Experience level</InputLabel>
-                                    <Select name="experience" value={formData.experience} onChange={handleFormChange} label="Experience level" disabled={loading}>
+                                    <InputLabel>Kokemustaso</InputLabel>
+                                    <Select name="experience" value={formData.experience} onChange={handleFormChange} label="Kokemustaso" disabled={loading}>
                                         <MenuItem value="none">Ei kokemusta</MenuItem>
                                         <MenuItem value="less1">Alle 1 vuosi</MenuItem>
                                         <MenuItem value="1-3">1-3 vuotta</MenuItem>
@@ -515,16 +533,16 @@ const skilledJobs = [
                                 </FormControl>
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField fullWidth required label="Nationality" name="nationality" value={formData.nationality} onChange={handleFormChange} disabled={loading} />
+                                <TextField fullWidth required label="Kansalaisuus" name="nationality" value={formData.nationality} onChange={handleFormChange} disabled={loading} />
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField fullWidth multiline rows={3} label="Additional information / Message" name="message" value={formData.message} onChange={handleFormChange} disabled={loading} />
+                                <TextField fullWidth multiline rows={3} label="Lisätietoja / Viesti" name="message" value={formData.message} onChange={handleFormChange} disabled={loading} />
                             </Grid>
                         </Grid>
                         <DialogActions sx={{ mt: 3, px: 0 }}>
-                            <Button onClick={() => setOpenForm(false)} disabled={loading}>Cancel</Button>
+                            <Button onClick={() => setOpenForm(false)} disabled={loading}>Peruuta</Button>
                             <Button type="submit" variant="contained" disabled={loading} sx={{ bgcolor: '#10b981' }}>
-                                {loading ? 'Submitting...' : 'Submit application'}
+                                {loading ? 'Lähetetään...' : 'Lähetä Hakemus'}
                             </Button>
                         </DialogActions>
                     </form>
@@ -534,8 +552,8 @@ const skilledJobs = [
             {/* Success Alert */}
             <Snackbar open={openSuccess} autoHideDuration={6000} onClose={() => setOpenSuccess(false)} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
                 <Alert onClose={() => setOpenSuccess(false)} severity="success" variant="filled" sx={{ width: '100%' }}>
-                    <Typography variant="h6" sx={{ fontWeight: 700 }}>Application submitted successfully!</Typography>
-                    <Typography>Our recruitment team will contact you within 24 hours.</Typography>
+                    <Typography variant="h6" sx={{ fontWeight: 700 }}>Hakemus lähetetty onnistuneesti!</Typography>
+                    <Typography>Rekrytointitiimimme ottaa sinuun yhteyttä 24 tunnin sisällä.</Typography>
                 </Alert>
             </Snackbar>
         </Box>
