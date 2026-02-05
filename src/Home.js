@@ -31,13 +31,11 @@ import {
 } from '@mui/material';
 
 import {
-  Phone,
   Email,
   LocationOn,
   Work,
   CheckCircle,
   Business,
-  WhatsApp,
   Security,
   Assignment,
   SupportAgent,
@@ -56,7 +54,6 @@ import {
   Person,
   Close
 } from '@mui/icons-material';
-
 const Home = () => {
   const [openForm, setOpenForm] = useState(false);
   const [openSuccess, setOpenSuccess] = useState(false);
