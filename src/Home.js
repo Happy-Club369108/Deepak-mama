@@ -493,7 +493,6 @@ const Home = () => {
                   >
                     <Email sx={{ mr: 1 }} /> info@jwfulfilments.com
                   </Link>
-          
                 </Stack>
               </CardContent>
             </Card>
@@ -574,10 +573,6 @@ const Home = () => {
                 Yhteystiedot
               </Typography>
               <Stack spacing={2}>
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <WhatsApp sx={{ mr: 2, color: '#25d366' }} />
-                  <Typography>+358 40 123 4567</Typography>
-                </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <Email sx={{ mr: 2, color: '#3b82f6' }} />
                   <Typography>info@jwfulfilments.com</Typography>
