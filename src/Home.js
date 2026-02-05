@@ -493,12 +493,7 @@ const Home = () => {
                   >
                     <Email sx={{ mr: 1 }} /> info@jwfulfilments.com
                   </Link>
-                  <Link
-                    href="tel:+358401234567"
-                    sx={{ display: 'flex', alignItems: 'center', color: '#3b82f6', textDecoration: 'none' }}
-                  >
-                    <Phone sx={{ mr: 1 }} /> +358 40 123 4567
-                  </Link>
+          
                 </Stack>
               </CardContent>
             </Card>
